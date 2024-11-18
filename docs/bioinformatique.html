@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="N. Pollet (EGCE), Sourakhata Tirera (Institut Pasteur de la Guyane)" />
+
+
+<title>Bioinformatique</title>
+
+<script src="site_libs/header-attrs-2.26/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">ECOLE THEMATIQUE G2</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Ecole thématique Genbarque Guyane</a>
+</li>
+<li>
+  <a href="experiences.html">Experiences au Camp des Nouragues</a>
+</li>
+<li>
+  <a href="bioinformatique.html">Bioinformatique a Malabo</a>
+</li>
+<li>
+  <a href="journal_club.html">Journal Club</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Bioinformatique</h1>
+<h4 class="author">N. Pollet (EGCE), Sourakhata Tirera (Institut Pasteur de la Guyane)</h4>
+<h4 class="date">17/03/2024</h4>
+
+</div>
+
+
+<hr />
+<div id="environnement-informatique" class="section level2">
+<h2>Environnement informatique</h2>
+<p>Nous utiliserons un environnement de travail sur un serveur linux. Pour se connecter à cette machine, il sera nécessaire d’installer le logiciel <a href="https://mobaxterm.mobatek.net/">MobaXterm</a> pour windows. Pour téléverser ou télécharges des fichiers, le logiciel <a href="https://filezilla-project.org/download.php?type=client">FileZilla</a> sera nécessaire.</p>
+<p>Aide-mémoire pour le travail en ligne de commande :</p>
+<p><a href="https://github.com/hbctraining" class="uri">https://github.com/hbctraining</a></p>
+<p><a href="https://github.com/hbctraining/Intro-to-Unix-archived/blob/master/lessons/01_the_filesystem.md" class="uri">https://github.com/hbctraining/Intro-to-Unix-archived/blob/master/lessons/01_the_filesystem.md</a></p>
+<p><a href="images/external_docs/Linux-avance-2022.pdf">une excellente formation linux</a></p>
+<p><a href="images/external_docs/AWK.pdf">awk</a> et la <a href="images/external_docs/Awk-Cheatsheet.pdf">cheat sheet de awk</a></p>
+<p><a href="images/external_docs/Formation_AWK_SED_GenoToul.pdf">une excellente formation sur sed et awk</a></p>
+<p><a href="images/external_docs/presentation_linux_quick_2018_0.pdf">Commandes unix pour les débutants</a></p>
+<p><a href="images/external_docs/unix_command.pdf">Références pour les commandes unix</a></p>
+<p>Les outils déployés sur le serveur linux:</p>
+<ul>
+<li>BIOAWK <a href="https://github.com/lh3/bioawk" class="uri">https://github.com/lh3/bioawk</a></li>
+<li>MINIMAP2 <a href="https://github.com/lh3/minimap2" class="uri">https://github.com/lh3/minimap2</a></li>
+<li>NANOPLOT <a href="https://github.com/wdecoster/NanoPlot" class="uri">https://github.com/wdecoster/NanoPlot</a></li>
+<li>CHOPPER <a href="https://github.com/wdecoster/chopper" class="uri">https://github.com/wdecoster/chopper</a></li>
+<li>FASTQC <a href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/" class="uri">https://www.bioinformatics.babraham.ac.uk/projects/fastqc/</a></li>
+<li>CANU <a href="https://github.com/marbl/canu" class="uri">https://github.com/marbl/canu</a></li>
+<li>SEQTK <a href="https://github.com/lh3/seqtk" class="uri">https://github.com/lh3/seqtk</a></li>
+<li>MEDAKA <a href="https://github.com/nanoporetech/medaka" class="uri">https://github.com/nanoporetech/medaka</a></li>
+<li>EPI2ME <a href="https://labs.epi2me.io/downloads/" class="uri">https://labs.epi2me.io/downloads/</a></li>
+<li>SAMTOOLS <a href="https://www.htslib.org/download/" class="uri">https://www.htslib.org/download/</a></li>
+<li>BCFTOOLS <a href="https://www.htslib.org/download/" class="uri">https://www.htslib.org/download/</a></li>
+<li>MAFFT <a href="https://mafft.cbrc.jp/alignment/software/" class="uri">https://mafft.cbrc.jp/alignment/software/</a></li>
+<li>FASTTREE <a href="http://www.microbesonline.org/fasttree/" class="uri">http://www.microbesonline.org/fasttree/</a></li>
+<li>DATAMASH <a href="https://www.gnu.org/software/datamash/" class="uri">https://www.gnu.org/software/datamash/</a></li>
+<li>EMU <a href="https://gitlab.com/treangenlab/emu" class="uri">https://gitlab.com/treangenlab/emu</a></li>
+<li>FLYE <a href="https://github.com/fenderglass/Flye" class="uri">https://github.com/fenderglass/Flye</a></li>
+</ul>
+</div>
+<div id="base-de-données" class="section level2">
+<h2>Base de données</h2>
+<ul>
+<li>SILVA <a href="https://www.arb-silva.de/" class="uri">https://www.arb-silva.de/</a></li>
+</ul>
+<p>SILVA est une base de données spécialisée sur les séquences d’ARNr des petites (SSU) et grandes (LSU) sous-unités ribosomales de tous les organismes des trois domaines du vivant (Archées, Bactéries, Eukaryotes). Les séquences dans SILVA ont été soumises à une procédure de contrôle de qualité et ont été alignées pour inferrer leur taxonomie.</p>
+<ul>
+<li><p>Midori2 <a href="https://www.reference-midori.info/" class="uri">https://www.reference-midori.info/</a></p></li>
+<li><p>RDP <a href="http://rdp.cme.msu.edu/" class="uri">http://rdp.cme.msu.edu/</a></p></li>
+<li><p>PR2 <a href="https://pr2-database.org/" class="uri">https://pr2-database.org/</a></p></li>
+<li><p>UNITE EUKARYOTES <a href="https://unite.ut.ee/" class="uri">https://unite.ut.ee/</a></p></li>
+</ul>
+</div>
+<div id="connexion-au-serveur-linux" class="section level2">
+<h2>Connexion au serveur linux</h2>
+<pre><code>ssh -XY USER@192.168.0.102
+</code></pre>
+</div>
+<div id="mise-à-jour-mk1c" class="section level2">
+<h2>Mise à jour Mk1C</h2>
+<p>La mise à jour du Mk1C peut s’avérer compliquée mais elle est indispensable pour l’utilisation des kits ONT version 14 avec les dernières versions de flowcell.</p>
+<p>De manière générale, je préfère réaliser les mises à jour en me connectant sur le mk1C (user minit).</p>
+<p>Resoudre le problème de clef</p>
+<pre><code>sudo apt-key adv --fetch-keys https://cdn.oxfordnanoportal.com/apt/ont-repo.pub</code></pre>
+<p>Mise à jour vers minknow 23.07.12</p>
+<p><a href="https://help.nanoporetech.com/en/articles/6967756-i-m-having-difficulty-updating-minknow-on-my-mk1c" class="uri">https://help.nanoporetech.com/en/articles/6967756-i-m-having-difficulty-updating-minknow-on-my-mk1c</a></p>
+<div id="connection-au-mk1c-par-ssh-en-activant-le-hotspot" class="section level3">
+<h3>Connection au Mk1C par ssh en activant le hotspot:</h3>
+<p>ssh <a href="mailto:minit@10.42.0.1" class="email">minit@10.42.0.1</a> pw: minit</p>
+</div>
+<div id="récupérer-des-données-du-mk1c-par-sftp-en-activant-le-hotspot" class="section level3">
+<h3>Récupérer des données du Mk1C par sftp en activant le hotspot:</h3>
+<p>sftp -C <a href="mailto:minit@10.42.0.1" class="email">minit@10.42.0.1</a> pw: minit cd /data get -r my_data_folder</p>
+</div>
+</div>
+<div id="basecalling-et-démultiplexage-des-données-ont" class="section level2">
+<h2>Basecalling et Démultiplexage des données ONT</h2>
+<div id="le-processus-de-basecalling" class="section level3">
+<h3>Le processus de basecalling</h3>
+<p>Le processus de basecalling correspond au traitement des signaux bruts collectés lors du séquençage et enregistrés dans les fichiers au format <em>pod5</em> (historiquement format <em>fast5</em>) pour obtenir les lectures (<em>‘reads’</em>) au format <a href="https://fr.wikipedia.org/wiki/FASTQ">fastq</a>. Pour des raisons opérationnelles informatiques, les lectures sont sauvegardées par lots d’un maximum de 4000 lectures et compressées pour économiser l’espace disque et sont par défaut au format <code>*.fastq.gz</code></p>
+<p>Le logiciel de basecalling proposé par défaut par ONT est aujourd’hui <strong>Dorado</strong>. L’opération de basecalling peut se faire pendant le séquençage en utilisant un mode rapide (fast basecalling) pour obtenir en temps réel des informations sur la qualité du séquençage. Néanmoins, la qualité des lectures ainsi obtenues n’est pas optimale, et il faut renouveler le basecalling une fois l’expérience de séquençage terminée en utilisant un mode de précision supérieure (high accuracy <em>HAC</em> ou superior accuracy <em>sup</em> basecalling).</p>
+<p>Le logiciel de basecalling Dorado prend avantage de calculs réalisés sur carte graphique (GPU), il est incorporé au logiciel MinKNOW mais peut être installé séparément sur un calculateur dédié. On veillera à sauvegarder les données brutes (raw data) sous forme d’une archive compressée pour faciliter l’archivage et la copie.</p>
+<pre><code>tar -zcvf xp_sequencage_XYZ.tar.gz dossier_experience</code></pre>
+<p>Le logiciel de basecalling accepte de nombreux arguments, certains obligatoires et d’autres optionnels. Parmi les arguments obligatoires figurent <strong>le type de flowcell</strong> (FLO-MIN114 …), <strong>le kit</strong> (SQK-LSK114) et <strong>la configuration du modèle pour le basecalling</strong> (dna_r10_450bps_hac). Cette dernière information est importante à noter car elle peut être utile pour l’analyse des données par la suite.</p>
+</div>
+</div>
+<div id="on-pourrait-comparer-une-série-de-lectures-avec-différents-modes-de-basecalling" class="section level1">
+<h1>On pourrait comparer une série de lectures avec différents modes de basecalling</h1>
+<div id="le-processus-de-démultiplexage" class="section level3">
+<h3>Le processus de démultiplexage</h3>
+<p>####Génération des index pour le multiplexage Utilisation de <a href="https://github.com/audy/barcode-generator" class="uri">https://github.com/audy/barcode-generator</a></p>
+<pre><code>(env_py27) endogene-egce:barcode-generator pollet$ bin/generate-barcodes --length 13 --min-dist 10 --max-stretch 1 --count 16
+generating barcodes...
+finished
+&gt;0
+GCAGTGCGAGTAG
+&gt;1
+TACGCAGCGTACG
+&gt;2
+TGCTAGAGTAGAC
+&gt;3
+ATCAGTCAGACGC
+&gt;4
+GATCATGCACTGC
+&gt;5
+GCGAGCGTCGAGA
+&gt;6
+CTATCAGTACGTA
+&gt;7
+ATGCTCTCTATAT
+&gt;8
+AGTGTGTAGCGCA
+&gt;9
+ACATACTACTCTG
+&gt;10
+CATACTATCTCAT
+&gt;11
+CGTCGACATGATG</code></pre>
+<p>Calcul et vérification des différences entre index : Buschmann T, Bystrykh LV (2013). “Levenshtein error-correcting barcodes for multiplexed DNA sequencing.” BMC bioinformatics, 14(1), 272.</p>
+<pre><code>&gt; library(DNABarcodes)
+&gt; all_indices&lt;-read.table(&quot;all_indices_sel.txt&quot;)
+&gt; all_indices&lt;-unlist(all_indices)
+&gt; analyse.barcodes(all_indices)
+                  Description hamming seqlev levenshtein
+1               Mean Distance  10.025  6.225    7.633333
+2             Median Distance  10.000  6.000    8.000000
+3            Minimum Distance   7.000  3.000    4.000000
+4            Maximum Distance  13.000  9.000   10.000000
+5 Guaranteed Error Correction   3.000  1.000    1.000000
+6  Guaranteed Error Detection   6.000  2.000    3.000000
+
+(env_py27) endogene-egce:barcode-generator pollet$ cat all_indices_sel.txt
+AACATGTGGTAAG
+ACAACCATTGGCA
+ACATACTACTCTG
+ACATCAGTAGTTC
+ACGCGCTCTTATA
+ACTTGTGCACCTG
+AGCCTAGCCAACT
+AGTGTGTAGCGCA
+ATCAGTCAGACGC
+CATACTATCTCAT
+CGTCGACATGATG
+GATCATGCACTGC
+GCAGTGCGAGTAG
+GCGAGCGTCGAGA
+TACGCAGCGTACG
+</code></pre>
+</div>
+<div id="contrôle-qualité-des-données-de-séquençage-ont" class="section level3">
+<h3>Contrôle qualité des données de séquençage ONT</h3>
+<p>A la fin d’une expérience de séquençage, les données sont enregistrées dans un dossier dont le nom est celui indiqué dans MinKNOW lors du lancement de l’expérience. Par défaut, les données sont sauvegardées dans un dossier <code>data</code></p>
+<pre><code>minion@Minion-PC2:/var/lib/minknow/data$ ls -ltrh  Speleobiome04/Speleobiome04/20240226_0858_MN28570_FAW79559_d0607377/
+total 7,4G
+drwxrwxr-x 2 minknow minknow 4,0K févr. 26 09:14 other_reports
+drwxrwxr-x 2 minknow minknow 260K févr. 29 09:02 pod5_pass
+drwxrwxr-x 2 minknow minknow 280K févr. 29 09:02 fastq_pass
+drwxrwxr-x 2 minknow minknow 144K févr. 29 09:02 fastq_fail
+drwxrwxr-x 2 minknow minknow 132K févr. 29 09:02 pod5_fail
+-rw-rw-r-- 1 minknow minknow 7,4G févr. 29 09:02 sequencing_summary_FAW79559_d0607377_6cc57590.txt
+-rw-rw-r-- 1 minknow minknow  706 févr. 29 09:02 final_summary_FAW79559_d0607377_6cc57590.txt
+-rw-rw-r-- 1 minknow minknow 1,6M févr. 29 09:02 pore_activity_FAW79559_d0607377_6cc57590.csv
+-rw-rw-r-- 1 minknow minknow 392K févr. 29 09:02 throughput_FAW79559_d0607377_6cc57590.csv
+-rw-rw-r-- 1 minknow minknow  249 févr. 29 09:02 barcode_alignment_FAW79559_d0607377_6cc57590.tsv
+-rw-rw-r-- 1 minknow minknow 291K févr. 29 09:02 report_FAW79559_20240226_0902_d0607377.json
+-rw-rw-r-- 1 minknow minknow 1,7M févr. 29 09:02 report_FAW79559_20240226_0902_d0607377.html
+-rw-rw-r-- 1 minknow minknow 2,0M févr. 29 09:02 report_FAW79559_20240226_0902_d0607377.md
+-rw-rw-r-- 1 minknow minknow  185 févr. 29 09:02 sample_sheet_FAW79559_20240226_0902_d0607377.csv</code></pre>
+<p>La structure du dossier est la suivante: {output_dir}/{experiment_id}/{sample_id}/{start_time}<em>{device_ID}</em>{flow_cell_id}_{short_protocol_run_id}/ - output_dir est le dossier parent dans lequel les données sont sauvegardées - experiment_id est l’identificant fournit par l’utilisateur - sample_id est un identificant d’échantillon fournit par l’utilisateur. Plusieurs sample_ids peuvent être définis pour un même experiment_id - start_time est le moment de démarrage au format YYYYMMDD_HHMM - device_id is le numéro de série du MinION Mk1B ou Mk1C ou la position du Minion - flow_cell_id est l’identifiant de la flow cell id (eg: FAH12345), - short_protocol_run_id est un identifiant unique de sept caractères du protocol ID</p>
+<p>Les fichiers de données sont nommés suivant la terminologie: {flowcell_id}<em>{basecall_state}</em>{short_run_id}<em>{batch_number}.fastq {flowcell_id}</em>{basecall_state}<em>{short_run_id}</em>{batch_number}.pod5</p>
+<p>Inspecter les différents graphiques.</p>
+<pre><code>Combien de lectures ont été obtenues au total ?
+Combien de pores au départ sur la flowcell ?
+Quelles sont les valeurs médiane, minimum et maximum pour la taille des lectures ?
+Quelle est la valeur de N50 ?
+Quelle est la qualité moyenne et la distribution de la qualité pour l&#39;expérience de séquençage ?
+Pour mémoire Q10 = 10% incertitude</code></pre>
+<p>Pour aller plus loin : Quel est l’impact du basecalling sur la qualité des lectures obtenues ?</p>
+</div>
+<div id="contrôle-qualité-du-démultiplexage" class="section level3">
+<h3>Contrôle qualité du démultiplexage</h3>
+<pre><code>Démultiplexage Dorado
+  Combien de lectures par index ont été obtenues ?
+  Combien de lectures n&#39;ont pas été démultiplexées ?
+  Combien de lectures sont assignées à un index qui n&#39;a pas été utilisé ?
+  Quelle est la distribution de la taille des lectures démultiplexées ?
+  
+Démultiplexage maison
+  Combien de lectures par index ont été obtenues ?
+  Combien de lectures n&#39;ont pas été démultiplexées ?
+  Combien de lectures sont assignées à un index qui n&#39;a pas été utilisé ?
+  Quelle est la distribution de la taille des lectures démultiplexées ?</code></pre>
+</div>
+<div id="assemblage-de-séquences-damplicons" class="section level2">
+<h2>Assemblage de séquences d’amplicons</h2>
+<p>#Guppyplex et NGSpeciesID</p>
+<p>#medaka smolecule 1-convertir les fastq en fasta avec l’information de regroupement bioawk -c fastx ‘{print “&gt;COI_F1R1” $name;print $seq}’ COI_3_pass_FILT_CO1_DROS_F1CO1_DROS_R1_SP.fastq &gt; COI_F1R1.fasta</p>
+<p>##(genbark0) <a href="mailto:cnrs@cnrs-PowerEdge-R840" class="email">cnrs@cnrs-PowerEdge-R840</a>:~/Documents/NicolasData/bacasable/test_consensus_amplicon$ sed -e ‘s/^&gt;/&gt;CO1F8R9 /’ COI_F8R9.fasta &gt; COI_F8R9_smolec.fasta</p>
+<p>2-Lancer la commande medaka smolec medaka smolecule –debug –model r1041_e82_400bps_hac_v4.3.0 –method spoa consensusF1R1_dir COI_F1R1.fasta</p>
+<p>3-Renommer le fichier consensus.fasta et editer le nom de la sequence bioawk -c fastx ‘{print “&gt;COI_F1R1”;print $seq}’ consensusF1R1_dir/consensus.fasta &gt; consensus_F1R1.fasta</p>
+<p>4-Ecrire un script bash pour automatiser les étapes 1 à 3</p>
+<p>#medaka smolecule –debug –model r941_min_high_g303 –method spoa output_dir/ input250.fasta</p>
+</div>
+<div id="bacterial-genome-assembly" class="section level2">
+<h2>Bacterial genome assembly</h2>
+<p><a href="https://labs.epi2me.io/workflows/wf-bacterial-genomes/" class="uri">https://labs.epi2me.io/workflows/wf-bacterial-genomes/</a></p>
+</div>
+<div id="présentations-des-bases-de-données-pour-lassignation-taxonomique-avantages-limitations" class="section level2">
+<h2>Présentations des bases de données pour l’assignation taxonomique: avantages, limitations</h2>
+</div>
+<div id="méthodes-dassignations-taxonomiques" class="section level2">
+<h2>Méthodes d’assignations taxonomiques</h2>
+<p>Emu</p>
+</div>
+<div id="méthodes-de-soumission-des-données-de-séquençage-ont" class="section level2">
+<h2>Méthodes de soumission des données de séquençage ONT</h2>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

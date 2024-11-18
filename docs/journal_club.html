@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="N. Pollet" />
+
+
+<title>JournalClub</title>
+
+<script src="site_libs/header-attrs-2.26/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">ECOLE THEMATIQUE G2</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Ecole thématique Genbarque Guyane</a>
+</li>
+<li>
+  <a href="experiences.html">Experiences au Camp des Nouragues</a>
+</li>
+<li>
+  <a href="bioinformatique.html">Bioinformatique a Malabo</a>
+</li>
+<li>
+  <a href="journal_club.html">Journal Club</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">JournalClub</h1>
+<h4 class="author">N. Pollet</h4>
+<h4 class="date">17/03/2024</h4>
+
+</div>
+
+
+<hr />
+<div id="journal-club" class="section level2">
+<h2>Journal Club</h2>
+<p>Liste des références:</p>
+<ul>
+<li>Abellan-Schneyder, Isabel, Monica S. Matchado, Sandra Reitmeier, Alina Sommer, Zeno Sewald, Jan Baumbach, Markus List, et Klaus Neuhaus. 2021. « Primer, Pipelines, Parameters: Issues in 16S rRNA Gene Sequencing ». mSphere 6 (1). <a href="https://doi.org/10.1128/mSphere.01202-20" class="uri">https://doi.org/10.1128/mSphere.01202-20</a>.</li>
+<li>Abeynayake, Shamila Weerakoon, Sonia Fiorito, Adrian Dinsdale, Mark Whattam, Bill Crowe, Kate Sparks, Paul Richard Campbell, et Cherie Gambley. 2021. « A Rapid and Cost-Effective Identification of Invertebrate Pests at the Borders Using MinION Sequencing of DNA Barcodes ». Genes 12 (8): 1138. <a href="https://doi.org/10.3390/genes12081138" class="uri">https://doi.org/10.3390/genes12081138</a>.</li>
+<li>Abrams, Jesse F., Lisa A. Hörig, Robert Brozovic, Jan Axtner, Alex Crampton-Platt, Azlan Mohamed, Seth T. Wong, Rahel Sollmann, Douglas W. Yu, et Andreas Wilting. 2019. « Shifting up a gear with iDNA: From mammal detection events to standardised surveys ». Journal of Applied Ecology 56 (7): 1637‑48. <a href="https://doi.org/10.1111/1365-2664.13411" class="uri">https://doi.org/10.1111/1365-2664.13411</a>.</li>
+<li>Chang, Jia Jin Marc, Yin Cheong Aden Ip, Andrew G. Bauman, et Danwei Huang. 2020. « MinION-in-ARMS: Nanopore Sequencing to Expedite Barcoding of Specimen-Rich Macrofaunal Samples From Autonomous Reef Monitoring Structures ». Frontiers in Marine Science 7: 448. <a href="https://doi.org/10.3389/fmars.2020.00448" class="uri">https://doi.org/10.3389/fmars.2020.00448</a>.</li>
+<li>Clarke, Erik L., Sesh A. Sundararaman, Stephanie N. Seifert, Frederic D. Bushman, Beatrice H. Hahn, et Dustin Brisson. 2017. « Swga: A Primer Design Toolkit for Selective Whole Genome Amplification ». Bioinformatics (Oxford, England) 33 (14): 2071‑77. <a href="https://doi.org/10.1093/bioinformatics/btx118" class="uri">https://doi.org/10.1093/bioinformatics/btx118</a>.</li>
+<li>Dejean, Tony, Alice Valentini, Antoine Duparc, Stéphanie Pellier-Cuit, François Pompanon, Pierre Taberlet, et Claude Miaud. 2011. « Persistence of Environmental DNA in Freshwater Ecosystems ». PloS One 6 (8): e23398. <a href="https://doi.org/10.1371/journal.pone.0023398" class="uri">https://doi.org/10.1371/journal.pone.0023398</a>.</li>
+<li>Dwivedi-Yu, Jane A., Zachary J. Oppler, Matthew W. Mitchell, Yun S. Song, et Dustin Brisson. 2023. « A Fast Machine-Learning-Guided Primer Design Pipeline for Selective Whole Genome Amplification ». PLOS Computational Biology 19 (4): e1010137. <a href="https://doi.org/10.1371/journal.pcbi.1010137" class="uri">https://doi.org/10.1371/journal.pcbi.1010137</a>.</li>
+<li>Ficetola, Gentile Francesco, Claude Miaud, François Pompanon, et Pierre Taberlet. 2008. « Species Detection Using Environmental DNA from Water Samples ». Biology Letters 4 (4): 423‑25. <a href="https://doi.org/10.1098/rsbl.2008.0118" class="uri">https://doi.org/10.1098/rsbl.2008.0118</a>.</li>
+<li>Garvin, Alex M., et Anja Fritsch. 2013. « Purifying and Concentrating Genomic DNA from Mock Forensic Samples Using Millipore Amicon Filters ». Journal of Forensic Sciences 58 Suppl 1 (janvier): S173-175. <a href="https://doi.org/10.1111/1556-4029.12002" class="uri">https://doi.org/10.1111/1556-4029.12002</a>.</li>
+<li>Goldberg, Caren S, David S Pilliod, Robert S Arkle, et Lisette P Waits. 2011. « Molecular Detection of Vertebrates in Stream Water: A Demonstration Using Rocky Mountain Tailed Frogs and Idaho Giant Salamanders ». PloS One 6 (7): e22746. <a href="https://doi.org/10.1371/journal.pone.0022746" class="uri">https://doi.org/10.1371/journal.pone.0022746</a>.</li>
+<li>Leichty, Aaron R., et Dustin Brisson. 2014. « Selective Whole Genome Amplification for Resequencing Target Microbial Species from Complex Natural Samples ». Genetics 198 (2): 473‑81. <a href="https://doi.org/10.1534/genetics.114.165498" class="uri">https://doi.org/10.1534/genetics.114.165498</a>.</li>
+<li>Maestri, Simone, Emanuela Cosentino, Marta Paterno, Hendrik Freitag, Jhoana M. Garces, Luca Marcolungo, Massimiliano Alfano, et al. 2019. « A Rapid and Accurate MinION-Based Workflow for Tracking Species Biodiversity in the Field ». Genes 10 (6): 468. <a href="https://doi.org/10.3390/genes10060468" class="uri">https://doi.org/10.3390/genes10060468</a>.</li>
+<li>Manske, Felix, Norbert Grundmann, et Wojciech Makalowski. 2020. « MetaGenomic Analysis of Short and Long Reads ». <a href="https://doi.org/10.1101/2020.03.13.991190" class="uri">https://doi.org/10.1101/2020.03.13.991190</a>.</li>
+<li>Matsui, Kazuaki, Mie Honjo, et Zenichiro Kawabata. 2001. « Estimation of the fate of dissolved DNA in thermally stratified lake water from the stability of exogenous plasmid DNA ». Aquatic Microbial Ecology 26 (1): 95‑102. <a href="https://doi.org/10.3354/ame026095" class="uri">https://doi.org/10.3354/ame026095</a>.</li>
+<li>Ordóñez, Carlos D., Carmen Mayoral-Campos, Conceição Egas, et Modesto Redrejo-Rodríguez. 2023. « A Primer-Independent DNA Polymerase-Based Method for Competent Whole-Genome Amplification of Intermediate to High GC Sequences ». NAR Genomics and Bioinformatics 5 (3): lqad073. <a href="https://doi.org/10.1093/nargab/lqad073" class="uri">https://doi.org/10.1093/nargab/lqad073</a>.</li>
+<li>Povilaitis, Tadas, Gediminas Alzbutas, Rasa Sukackaite, Juozas Siurkus, et Remigijus Skirgaila. 2016. « In Vitro Evolution of Phi29 DNA Polymerase Using Isothermal Compartmentalized Self Replication Technique ». Protein Engineering, Design &amp; Selection: PEDS 29 (12): 617‑28. <a href="https://doi.org/10.1093/protein/gzw052" class="uri">https://doi.org/10.1093/protein/gzw052</a>.</li>
+<li>Sahlin, Kristoffer, Marisa C. W. Lim, et Stefan Prost. 2021. « NGSpeciesID: DNA Barcode and Amplicon Consensus Generation from Long-Read Sequencing Data ». Ecology and Evolution 11 (3): 1392‑98. <a href="https://doi.org/10.1002/ece3.7146" class="uri">https://doi.org/10.1002/ece3.7146</a>.</li>
+<li>Seah, Adeline, Marisa C. W. Lim, Denise McAloose, Stefan Prost, et Tracie A. Seimon. 2020. « MinION-Based DNA Barcoding of Preserved and Non-Invasively Collected Wildlife Samples ». Genes 11 (4): E445. <a href="https://doi.org/10.3390/genes11040445" class="uri">https://doi.org/10.3390/genes11040445</a>.</li>
+<li>Singh, Utkarsha A., Mukta Kumari, et Soumya Iyengar. 2018. « Method for Improving the Quality of Genomic DNA Obtained from Minute Quantities of Tissue and Blood Samples Using Chelex 100 Resin ». Biological Procedures Online 20 (1): 1‑8. <a href="https://doi.org/10.1186/s12575-018-0077-6" class="uri">https://doi.org/10.1186/s12575-018-0077-6</a>.</li>
+<li>Srivathsan, Amrita, Leshon Lee, Kazutaka Katoh, Emily Hartop, Sujatha Narayanan Kutty, Johnathan Wong, Darren Yeo, et Rudolf Meier. 2021. « ONTbarcoder and MinION Barcodes Aid Biodiversity Discovery and Identification by Everyone, for Everyone ». BMC Biology 19 (1): 1‑21. <a href="https://doi.org/10.1186/s12915-021-01141-x" class="uri">https://doi.org/10.1186/s12915-021-01141-x</a>.</li>
+<li>Taberlet, Pierre, Eric Coissac, Mehrdad Hajibabaei, et Loren H. Rieseberg. 2012. « Environmental DNA ». Molecular Ecology 21 (8): 1789‑93. <a href="https://doi.org/10.1111/j.1365-294X.2012.05542.x" class="uri">https://doi.org/10.1111/j.1365-294X.2012.05542.x</a>. Taberlet, Pierre, Eric Coissac, François Pompanon, Christian Brochmann, et Eske Willerslev. 2012. « Towards Next-Generation Biodiversity Assessment Using DNA Metabarcoding ». Molecular Ecology 21 (8): 2045‑50. <a href="https://doi.org/10.1111/j.1365-294X.2012.05470.x" class="uri">https://doi.org/10.1111/j.1365-294X.2012.05470.x</a>.</li>
+<li>Thurlow, Charles M., Sandeep J. Joseph, Lilia Ganova-Raeva, Samantha S. Katz, Lara Pereira, Cheng Chen, Alyssa Debra, et al. s. d. « Selective Whole-Genome Amplification as a Tool to Enrich Specimens with Low Treponema pallidum Genomic DNA Copies for Whole-Genome Sequencing ». mSphere 7 (3): e00009-22. <a href="https://doi.org/10.1128/msphere.00009-22" class="uri">https://doi.org/10.1128/msphere.00009-22</a>.</li>
+<li>Vasiljevic, Nina, Marisa Lim, Emily Humble, Adeline Seah, Adelgunde Kratzer, Nadja V. Morf, Stefan Prost, et Rob Ogden. 2021. « Developmental Validation of Oxford Nanopore Technology MinION Sequence Data and the NGSpeciesID Bioinformatic Pipeline for Forensic Genetic Species Identification ». Forensic Science International. Genetics 53 (juillet): 102493. <a href="https://doi.org/10.1016/j.fsigen.2021.102493" class="uri">https://doi.org/10.1016/j.fsigen.2021.102493</a>.</li>
+<li>Wang, Wendy Y., Amrita Srivathsan, Maosheng Foo, Seiki K. Yamane, et Rudolf Meier. 2018. « Sorting Specimen-Rich Invertebrate Samples with Cost-Effective NGS Barcodes: Validating a Reverse Workflow for Specimen Processing ». Molecular Ecology Resources 18 (3): 490‑501. <a href="https://doi.org/10.1111/1755-0998.12751" class="uri">https://doi.org/10.1111/1755-0998.12751</a>.</li>
+</ul>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
