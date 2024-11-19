@@ -17,7 +17,7 @@
 <script src="site_libs/header-attrs-2.26/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/journal.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -30,9 +30,10 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -43,16 +44,6 @@
   ul.task-list{list-style: none;}
     </style>
 
-<style type="text/css">code{white-space: pre;}</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
 
 
 
@@ -220,6 +211,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -227,6 +281,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -279,8 +343,8 @@ $(document).ready(function () {
 <img src="images/GenbarqueG2.jpg" alt="" />
 <p class="caption">Genbarque_bioinfo</p>
 </div>
-<div id="environnement-informatique" class="section level2">
-<h2>Environnement informatique</h2>
+<div id="environnement-informatique" class="section level1" number="1">
+<h1 number="1"><span class="header-section-number">1</span> Environnement informatique</h1>
 <p>Nous utiliserons un environnement de travail sur un serveur linux. Pour se connecter à cette machine, il sera nécessaire d’installer le logiciel <a href="https://mobaxterm.mobatek.net/">MobaXterm</a> pour windows. Pour téléverser ou télécharges des fichiers, le logiciel <a href="https://filezilla-project.org/download.php?type=client">FileZilla</a> sera nécessaire.</p>
 <p>Aide-mémoire pour le travail en ligne de commande :</p>
 <p><a href="https://github.com/hbctraining" class="uri">https://github.com/hbctraining</a></p>
@@ -310,8 +374,8 @@ $(document).ready(function () {
 <li>FLYE <a href="https://github.com/fenderglass/Flye" class="uri">https://github.com/fenderglass/Flye</a></li>
 </ul>
 </div>
-<div id="base-de-données" class="section level2">
-<h2>Base de données</h2>
+<div id="base-de-données" class="section level1" number="2">
+<h1 number="2"><span class="header-section-number">2</span> Base de données</h1>
 <ul>
 <li>SILVA <a href="https://www.arb-silva.de/" class="uri">https://www.arb-silva.de/</a></li>
 </ul>
@@ -323,32 +387,36 @@ $(document).ready(function () {
 <li><p>UNITE EUKARYOTES <a href="https://unite.ut.ee/" class="uri">https://unite.ut.ee/</a></p></li>
 </ul>
 </div>
-<div id="connexion-au-serveur-linux" class="section level2">
-<h2>Connexion au serveur linux</h2>
+<div id="connexion-au-serveur-linux" class="section level1" number="3">
+<h1 number="3"><span class="header-section-number">3</span> Connexion au serveur linux</h1>
 <pre><code>ssh -XY USER@192.168.0.102
 </code></pre>
 </div>
-<div id="mise-à-jour-mk1c" class="section level2">
-<h2>Mise à jour Mk1C</h2>
+<div id="mise-à-jour-mk1c" class="section level1" number="4">
+<h1 number="4"><span class="header-section-number">4</span> Mise à jour Mk1C</h1>
 <p>La mise à jour du Mk1C peut s’avérer compliquée mais elle est indispensable pour l’utilisation des kits ONT version 14 avec les dernières versions de flowcell.</p>
 <p>De manière générale, je préfère réaliser les mises à jour en me connectant sur le mk1C (user minit).</p>
 <p>Resoudre le problème de clef</p>
-<pre><code>sudo apt-key adv --fetch-keys https://cdn.oxfordnanoportal.com/apt/ont-repo.pub</code></pre>
+<pre><code>    sudo apt-key adv --fetch-keys https://cdn.oxfordnanoportal.com/apt/ont-repo.pub</code></pre>
 <p>Mise à jour vers minknow 23.07.12</p>
 <p><a href="https://help.nanoporetech.com/en/articles/6967756-i-m-having-difficulty-updating-minknow-on-my-mk1c" class="uri">https://help.nanoporetech.com/en/articles/6967756-i-m-having-difficulty-updating-minknow-on-my-mk1c</a></p>
-<div id="connection-au-mk1c-par-ssh-en-activant-le-hotspot" class="section level3">
-<h3>Connection au Mk1C par ssh en activant le hotspot:</h3>
-<p>ssh <a href="mailto:minit@10.42.0.1" class="email">minit@10.42.0.1</a> pw: minit</p>
+<div id="connection-au-mk1c-par-ssh-en-activant-le-hotspot" class="section level2" number="4.1">
+<h2 number="4.1"><span class="header-section-number">4.1</span> Connection au Mk1C par ssh en activant le hotspot:</h2>
+<pre><code>ssh minit@10.42.0.1
+pw: minit</code></pre>
 </div>
-<div id="récupérer-des-données-du-mk1c-par-sftp-en-activant-le-hotspot" class="section level3">
-<h3>Récupérer des données du Mk1C par sftp en activant le hotspot:</h3>
-<p>sftp -C <a href="mailto:minit@10.42.0.1" class="email">minit@10.42.0.1</a> pw: minit cd /data get -r my_data_folder</p>
+<div id="récupérer-des-données-du-mk1c-par-sftp-en-activant-le-hotspot" class="section level2" number="4.2">
+<h2 number="4.2"><span class="header-section-number">4.2</span> Récupérer des données du Mk1C par sftp en activant le hotspot:</h2>
+<pre><code>sftp -C minit@10.42.0.1
+pw: minit
+cd /data
+get -r my_data_folder</code></pre>
 </div>
 </div>
-<div id="basecalling-et-démultiplexage-des-données-ont" class="section level2">
-<h2>Basecalling et Démultiplexage des données ONT</h2>
-<div id="le-processus-de-basecalling" class="section level3">
-<h3>Le processus de basecalling</h3>
+<div id="basecalling-et-démultiplexage-des-données-ont" class="section level1" number="5">
+<h1 number="5"><span class="header-section-number">5</span> Basecalling et Démultiplexage des données ONT</h1>
+<div id="le-processus-de-basecalling" class="section level2" number="5.1">
+<h2 number="5.1"><span class="header-section-number">5.1</span> Le processus de basecalling</h2>
 <p>Le processus de basecalling correspond au traitement des signaux bruts collectés lors du séquençage et enregistrés dans les fichiers au format <em>pod5</em> (historiquement format <em>fast5</em>) pour obtenir les lectures (<em>‘reads’</em>) au format <a href="https://fr.wikipedia.org/wiki/FASTQ">fastq</a>. Pour des raisons opérationnelles informatiques, les lectures sont sauvegardées par lots d’un maximum de 4000 lectures et compressées pour économiser l’espace disque et sont par défaut au format <code>*.fastq.gz</code></p>
 <p>Le logiciel de basecalling proposé par défaut par ONT est aujourd’hui <strong>Dorado</strong>. L’opération de basecalling peut se faire pendant le séquençage en utilisant un mode rapide (fast basecalling) pour obtenir en temps réel des informations sur la qualité du séquençage. Néanmoins, la qualité des lectures ainsi obtenues n’est pas optimale, et il faut renouveler le basecalling une fois l’expérience de séquençage terminée en utilisant un mode de précision supérieure (high accuracy <em>HAC</em> ou superior accuracy <em>sup</em> basecalling).</p>
 <p>Le logiciel de basecalling Dorado prend avantage de calculs réalisés sur carte graphique (GPU), il est incorporé au logiciel MinKNOW mais peut être installé séparément sur un calculateur dédié. On veillera à sauvegarder les données brutes (raw data) sous forme d’une archive compressée pour faciliter l’archivage et la copie.</p>
@@ -356,9 +424,11 @@ $(document).ready(function () {
 <p>Le logiciel de basecalling accepte de nombreux arguments, certains obligatoires et d’autres optionnels. Parmi les arguments obligatoires figurent <strong>le type de flowcell</strong> (FLO-MIN114 …), <strong>le kit</strong> (SQK-LSK114) et <strong>la configuration du modèle pour le basecalling</strong> (dna_r10_450bps_hac). Cette dernière information est importante à noter car elle peut être utile pour l’analyse des données par la suite.</p>
 <p>On pourrait comparer une série de lectures avec différents modes de basecalling</p>
 </div>
-<div id="le-processus-de-démultiplexage" class="section level3">
-<h3>Le processus de démultiplexage</h3>
-<p>####Génération des index pour le multiplexage Utilisation de <a href="https://github.com/audy/barcode-generator" class="uri">https://github.com/audy/barcode-generator</a></p>
+<div id="le-processus-de-démultiplexage" class="section level2" number="5.2">
+<h2 number="5.2"><span class="header-section-number">5.2</span> Le processus de démultiplexage</h2>
+<div id="génération-des-index-pour-le-multiplexage" class="section level3" number="5.2.1">
+<h3 number="5.2.1"><span class="header-section-number">5.2.1</span> Génération des index pour le multiplexage</h3>
+<p>Utilisation de <a href="https://github.com/audy/barcode-generator" class="uri">https://github.com/audy/barcode-generator</a></p>
 <pre><code>(env_py27) endogene-egce:barcode-generator pollet$ bin/generate-barcodes --length 13 --min-dist 10 --max-stretch 1 --count 16
 generating barcodes...
 finished
@@ -417,8 +487,9 @@ GCGAGCGTCGAGA
 TACGCAGCGTACG
 </code></pre>
 </div>
-<div id="contrôle-qualité-des-données-de-séquençage-ont" class="section level3">
-<h3>Contrôle qualité des données de séquençage ONT</h3>
+</div>
+<div id="contrôle-qualité-des-données-de-séquençage-ont" class="section level2" number="5.3">
+<h2 number="5.3"><span class="header-section-number">5.3</span> Contrôle qualité des données de séquençage ONT</h2>
 <p>A la fin d’une expérience de séquençage, les données sont enregistrées dans un dossier dont le nom est celui indiqué dans MinKNOW lors du lancement de l’expérience. Par défaut, les données sont sauvegardées dans un dossier <code>data</code></p>
 <pre><code>minion@Minion-PC2:/var/lib/minknow/data$ ls -ltrh  Speleobiome04/Speleobiome04/20240226_0858_MN28570_FAW79559_d0607377/
 total 7,4G
@@ -447,8 +518,8 @@ Quelle est la qualité moyenne et la distribution de la qualité pour l&#39;exp�
 Pour mémoire Q10 = 10% incertitude</code></pre>
 <p>Pour aller plus loin : Quel est l’impact du basecalling sur la qualité des lectures obtenues ?</p>
 </div>
-<div id="contrôle-qualité-du-démultiplexage" class="section level3">
-<h3>Contrôle qualité du démultiplexage</h3>
+<div id="contrôle-qualité-du-démultiplexage" class="section level2" number="5.4">
+<h2 number="5.4"><span class="header-section-number">5.4</span> Contrôle qualité du démultiplexage</h2>
 <pre><code>Démultiplexage Dorado
   Combien de lectures par index ont été obtenues ?
   Combien de lectures n&#39;ont pas été démultiplexées ?
@@ -462,42 +533,46 @@ Démultiplexage maison
   Quelle est la distribution de la taille des lectures démultiplexées ?</code></pre>
 </div>
 </div>
-<div id="assemblage-de-séquences-damplicons" class="section level2">
-<h2>Assemblage de séquences d’amplicons</h2>
-<div id="guppyplex-et-ngspeciesid" class="section level3">
-<h3>Guppyplex et NGSpeciesID</h3>
-<div id="medaka-smolecule" class="section level4">
-<h4>medaka smolecule</h4>
+<div id="assemblage-de-séquences-damplicons" class="section level1" number="6">
+<h1 number="6"><span class="header-section-number">6</span> Assemblage de séquences d’amplicons</h1>
+<div id="guppyplex-et-ngspeciesid" class="section level2" number="6.1">
+<h2 number="6.1"><span class="header-section-number">6.1</span> Guppyplex et NGSpeciesID</h2>
+<div id="medaka-smolecule" class="section level3" number="6.1.1">
+<h3 number="6.1.1"><span class="header-section-number">6.1.1</span> medaka smolecule</h3>
 <p>1-convertir les fastq en fasta avec l’information de regroupement</p>
 <pre><code>bioawk -c fastx &#39;{print &quot;&gt;COI_F1R1 &quot; $name;print $seq}&#39; COI_3_pass_FILT_CO1_DROS_F1CO1_DROS_R1_SP.fastq &gt; COI_F1R1.fasta</code></pre>
 <pre><code>cnrs@cnrs-PowerEdge-R840:~/Documents/NicolasData/bacasable/test_consensus_amplicon$ sed -e &#39;s/^&gt;/&gt;CO1F8R9 /&#39; COI_F8R9.fasta &gt; COI_F8R9_smolec.fasta </code></pre>
 <p>2-Lancer la commande medaka smolec</p>
 <pre><code>medaka smolecule --debug --model r1041_e82_400bps_hac_v4.3.0 --method spoa consensusF1R1_dir COI_F1R1.fasta</code></pre>
-<p>ATTENTION : la méthode spoa consiste à réaliser un alignement multiple des lectures et par conséquent il faut éviter de le lancer sur des milliers de lectures, sinon le temps de calcul sera trèèèèès loooooonnng.</p>
-<p>3-Renommer le fichier consensus.fasta et editer le nom de la sequence ```bioawk -c fastx ‘{print “&gt;COI_F1R1”;print $seq}’ consensusF1R1_dir/consensus.fasta &gt; consensus_F1R1.fasta</p>
-<pre><code>4-Ecrire un script bash pour automatiser les étapes 1 à 3 
-</code></pre>
-<p>medaka smolecule –debug –model r941_min_high_g303 –method spoa output_dir/ input250.fasta ```</p>
+<p>ATTENTION : la méthode spoa consiste à réaliser un alignement multiple des lectures et par conséquent il faut éviter de le lancer sur des milliers de lectures, sinon le temps de calcul sera trèèèèès loooooonnnnnngggggg.</p>
+<p>3-Renommer le fichier consensus.fasta et editer le nom de la sequence</p>
+<pre><code>bioawk -c fastx &#39;{print &quot;&gt;COI_F1R1&quot;;print $seq}&#39; consensusF1R1_dir/consensus.fasta &gt; consensus_F1R1.fasta</code></pre>
+<p>4-Ecrire un script bash pour automatiser les étapes 1 à 3</p>
+<pre><code>medaka smolecule --debug --model r941_min_high_g303 --method spoa  output_dir/ input250.fasta</code></pre>
 </div>
 </div>
 </div>
-<div id="bacterial-genome-assembly" class="section level2">
-<h2>Bacterial genome assembly</h2>
+<div id="bacterial-genome-assembly" class="section level1" number="7">
+<h1 number="7"><span class="header-section-number">7</span> Bacterial genome assembly</h1>
 <p><a href="https://labs.epi2me.io/workflows/wf-bacterial-genomes/" class="uri">https://labs.epi2me.io/workflows/wf-bacterial-genomes/</a></p>
 </div>
-<div id="présentations-des-bases-de-données-pour-lassignation-taxonomique-avantages-limitations" class="section level2">
-<h2>Présentations des bases de données pour l’assignation taxonomique: avantages, limitations</h2>
+<div id="présentations-des-bases-de-données-pour-lassignation-taxonomique-avantages-limitations" class="section level1" number="8">
+<h1 number="8"><span class="header-section-number">8</span> Présentations des bases de données pour l’assignation taxonomique: avantages, limitations</h1>
+<p>Todo …</p>
 </div>
-<div id="méthodes-dassignations-taxonomiques" class="section level2">
-<h2>Méthodes d’assignations taxonomiques</h2>
+<div id="méthodes-dassignations-taxonomiques" class="section level1" number="9">
+<h1 number="9"><span class="header-section-number">9</span> Méthodes d’assignations taxonomiques</h1>
 <p>Emu</p>
 </div>
-<div id="méthodes-de-soumission-des-données-de-séquençage-ont" class="section level2">
-<h2>Méthodes de soumission des données de séquençage ONT</h2>
+<div id="méthodes-de-soumission-des-données-de-séquençage-ont" class="section level1" number="10">
+<h1 number="10"><span class="header-section-number">10</span> Méthodes de soumission des données de séquençage ONT</h1>
+<p>Submission to EBI ENA at <a href="https://www.ebi.ac.uk/ena/browser/submit" class="uri">https://www.ebi.ac.uk/ena/browser/submit</a></p>
 </div>
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -530,6 +605,35 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

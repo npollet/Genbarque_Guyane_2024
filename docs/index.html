@@ -17,7 +17,7 @@
 <script src="site_libs/header-attrs-2.26/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/journal.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -30,9 +30,10 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -43,16 +44,6 @@
   ul.task-list{list-style: none;}
     </style>
 
-<style type="text/css">code{white-space: pre;}</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
 
 
 
@@ -220,6 +211,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -227,6 +281,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -279,24 +343,24 @@ $(document).ready(function () {
 <img src="images/GenbarqueG2_home.jpg" alt="" />
 <p class="caption">Genbarque_G2</p>
 </div>
-<div id="introduction" class="section level1">
-<h1>Introduction</h1>
+<div id="introduction" class="section level1" number="1">
+<h1 number="1"><span class="header-section-number">1</span> Introduction</h1>
 <p>L’école thématique “Genbarque Guyane” du CEBA se focalisera sur l’analyse de la biodiversité par des approches de métagénomique, plus spécifiquement sur l’utilisation des approches de séquençage ONT incluant l’analyse bioinformatique.</p>
 </div>
-<div id="expérimentations" class="section level1">
-<h1>Expérimentations</h1>
+<div id="expérimentations" class="section level1" number="2">
+<h1 number="2"><span class="header-section-number">2</span> Expérimentations</h1>
 <p>Le <a href="experiences.html">volet expérimental</a> au camp des Nouragues couvre les aspects de génétique moléculaire allant de l’extraction de l’ADN ou ARN à la construction de banques et séquençage sur flongle.</p>
 </div>
-<div id="bioinformatique" class="section level1">
-<h1>Bioinformatique</h1>
+<div id="bioinformatique" class="section level1" number="3">
+<h1 number="3"><span class="header-section-number">3</span> Bioinformatique</h1>
 <p>Le <a href="bioinformatique.html">volet analyse bioinformatique</a> couvre les parties de basecalling, démultiplexage, contrôle qualité, assemblage de consensus pour le séquençage d’amplicons, analyse de metabarcoding.</p>
 </div>
-<div id="journal-club" class="section level1">
-<h1>Journal Club</h1>
+<div id="journal-club" class="section level1" number="4">
+<h1 number="4"><span class="header-section-number">4</span> Journal Club</h1>
 <p>Le <a href="journal_club.html">volet Journal club</a> propose un ensemble d’articles permettant d’aller plus loin dans les applications, les protocoles et les fondamentaux.</p>
 </div>
-<div id="organisation" class="section level1">
-<h1>Organisation</h1>
+<div id="organisation" class="section level1" number="5">
+<h1 number="5"><span class="header-section-number">5</span> Organisation</h1>
 <p>Bonjour à tous et à toutes,</p>
 <p>Notre école thématique arrive à grands pas !</p>
 <p>Nous vous attendons tous ce mardi 02 avril entre 8h00 et 8h30 au Centre de Recherche de Montabo dans la grande salle de réunion du bâtiment A. Un petit déjeuner (viennoiseries, café, etc) vous attendra!</p>
@@ -305,8 +369,8 @@ $(document).ready(function () {
 <p><strong>Veuillez limiter le volume de vos bagages, car l’espace est limité sur les hélicoptères. Veuillez prévoir un 1 sac type randonnée ~50-60L/touque/petite valise par personne + 1 item personnel en cabine.</strong></p>
 <p>L’équipe de la station des Nouragues vous fera parvenir sous peu des informations clés pour la préparation de la mission.</p>
 <p>Logistique des déplacements:</p>
-<div id="mardi-02-avril" class="section level2">
-<h2>Mardi 02 Avril</h2>
+<div id="mardi-02-avril" class="section level2" number="5.1">
+<h2 number="5.1"><span class="header-section-number">5.1</span> Mardi 02 Avril</h2>
 <p><strong>8:30 - 11:30</strong> Accueil au Centre de Montabo dans la grande salle de réunion.</p>
 <pre><code>  Tour de table des présentations, introduction de l’école</code></pre>
 <p><strong>11:40 - 13:40</strong> Départ du Centre de Recherche de Montabo -&gt; Bus -&gt; Helipad de la piste de Belizon.</p>
@@ -314,12 +378,12 @@ $(document).ready(function () {
 <p><strong>16:00 - 17:00</strong> Installation au camp Inselberg.</p>
 <p><strong>17:00 - 18:00</strong> Présentation de la station des Nouragues par Élodie Schloesing et Cyril Gaertner.</p>
 </div>
-<div id="mercredi-03-avril-au-vendredi-05-avril" class="section level2">
-<h2>Mercredi 03 avril au Vendredi 05 avril</h2>
+<div id="mercredi-03-avril-au-vendredi-05-avril" class="section level2" number="5.2">
+<h2 number="5.2"><span class="header-section-number">5.2</span> Mercredi 03 avril au Vendredi 05 avril</h2>
 <pre><code>  Déroulement de la phase pratique de l’école thématique.</code></pre>
 </div>
-<div id="samedi-06-avril" class="section level2">
-<h2>Samedi 06 avril</h2>
+<div id="samedi-06-avril" class="section level2" number="5.3">
+<h2 number="5.3"><span class="header-section-number">5.3</span> Samedi 06 avril</h2>
 <p><strong>8:00 - 12:00</strong> Module de l’école thématique.</p>
 <p><strong>13:00 -&gt; 14:30</strong> Rangement du camp.</p>
 <p><strong>15:00 -&gt; 17:20</strong> Rotation de l’hélicoptère entre le Camp Inselbeg et Belizon.</p>
@@ -333,15 +397,15 @@ $(document).ready(function () {
 
    cDNA : 100 ng de produit de cDNA purifié à 50 ng/µL et QC avec Qubit/Nanodrop ou gel</code></pre>
 </div>
-<div id="lundi-08-avril-au-mercredi-10-avril-de-8h30-à-17h00" class="section level2">
-<h2>Lundi 08 avril au mercredi 10 avril de 8h30 à 17h00</h2>
+<div id="lundi-08-avril-au-mercredi-10-avril-de-8h30-à-17h00" class="section level2" number="5.4">
+<h2 number="5.4"><span class="header-section-number">5.4</span> Lundi 08 avril au mercredi 10 avril de 8h30 à 17h00</h2>
 <pre><code>  Déroulement du Module bioinformatique dans la grande salle du Centre de recherche de Montabo</code></pre>
 <p>Il faudra installer les logiciels suivants :</p>
 <p>-<a href="https://mobaxterm.mobatek.net/">MobaXterm</a> pour windows.</p>
 <p>-<a href="https://filezilla-project.org/download.php?type=client">FileZilla</a></p>
 </div>
-<div id="la-fine-équipe" class="section level2">
-<h2>La fine équipe</h2>
+<div id="la-fine-équipe" class="section level2" number="5.5">
+<h2 number="5.5"><span class="header-section-number">5.5</span> La fine équipe</h2>
 <p>Mathieu Chouteau, LEEISA</p>
 <p>Sourakhata Tirera, Institut Pasteur de la Guyane</p>
 <p>Nicolas Pollet, EGCE</p>
@@ -351,6 +415,8 @@ $(document).ready(function () {
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -383,6 +449,35 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

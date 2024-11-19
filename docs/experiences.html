@@ -12,12 +12,12 @@
 <meta name="author" content="I. Clavereau (EGCE), N. Pollet (EGCE)" />
 
 
-<title>Genbarque Nouragues Expériences</title>
+<title>Expériences au camp des Nouragues</title>
 
 <script src="site_libs/header-attrs-2.26/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/journal.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -30,9 +30,10 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -43,16 +44,6 @@
   ul.task-list{list-style: none;}
     </style>
 
-<style type="text/css">code{white-space: pre;}</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
 
 
 
@@ -220,6 +211,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -227,6 +281,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -267,7 +331,7 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Genbarque Nouragues Expériences</h1>
+<h1 class="title toc-ignore">Expériences au camp des Nouragues</h1>
 <h4 class="author">I. Clavereau (EGCE), N. Pollet (EGCE)</h4>
 <h4 class="date">17/03/2024</h4>
 
@@ -279,14 +343,11 @@ $(document).ready(function () {
 <img src="images/GenbarqueG2_expe.jpg" alt="" />
 <p class="caption">Genbarque_G2_experience</p>
 </div>
-<div id="expériences-au-camp-des-nouragues" class="section level1">
-<h1>Expériences au camp des Nouragues</h1>
 <p>L’école thématique “Genbarque Guyane” du CEBA se focalisera sur l’analyse de la biodiversité par des approches de métagénomique, plus spécifiquement sur l’utilisation des approches de séquençage de troisième génération incluant l’analyse bioinformatique. Le volet expérimental à la <a href="https://www.leeisa.cnrs.fr/plateformes/station-scientifique-des-nouragues/">station de recherche des Nouragues</a> couvre les aspects de génétique moléculaire allant de l’extraction de l’ADN ou ARN à la construction de banques et séquençage sur flongle.</p>
-</div>
-<div id="atelier-extraction-dadn" class="section level1">
-<h1>Atelier Extraction d’ADN</h1>
-<div id="recommandations" class="section level2">
-<h2>Recommandations</h2>
+<div id="atelier-extraction-dadn" class="section level1" number="1">
+<h1 number="1"><span class="header-section-number">1</span> Atelier Extraction d’ADN</h1>
+<div id="recommandations" class="section level2" number="1.1">
+<h2 number="1.1"><span class="header-section-number">1.1</span> Recommandations</h2>
 <blockquote>
 <p>[!CAUTION] Porter des gants et une blouse</p>
 </blockquote>
@@ -309,19 +370,20 @@ $(document).ready(function () {
 <p>[!TIP] Rédiger une fiche d’extraction (correspondance identifiant d’échantillon et identifiant de l’extraction)</p>
 </blockquote>
 </div>
-<div id="matériels" class="section level2">
-<h2>Matériels</h2>
+<div id="matériels" class="section level2" number="1.2">
+<h2 number="1.2"><span class="header-section-number">1.2</span> Matériels</h2>
 <p>bloc-chauffant (56°C), centrifugeuse, portoirs, Qubit, électrophorèse, pipettes, tubes 1.5 et/ou 2 mL, pilons de broyage, vortex avec adaptateur pour broyage à billes ou broyeur à billes.</p>
 <p>Rappel pour calcul des dilutions : C1V1=C2V2 et donc V2=(C1V1)/C2</p>
 </div>
-<div id="procédures" class="section level2">
-<h2>Procédures</h2>
+<div id="procédures" class="section level2" number="1.3">
+<h2 number="1.3"><span class="header-section-number">1.3</span> Procédures</h2>
 <p>Le protocole de référence pour le kit <a href="images/external_docs/r2002_zymobiomics_dna-rna_miniprep_kit.pdf">Zymobiomics DNA/RNA miniprep</a></p>
 <p>Le <a href="images/external_docs/Protocole_Zymo_ADN-ARN_Miniprep_kit.pdf">protocole simplifié Zymobiomics DNA/RNA miniprep</a></p>
 <p>Le protocole de référence pour le kit <a href="images/external_docs/Instruction-NucleoMag-Tissue-FR.pdf">Macherey Nagel NucleoMag Tissue</a></p>
-<div id="protocole-simplifié-dextraction-dadn-avec-le-kit-macherey-nagel-nucleomag-tissue---jour-1" class="section level3">
-<h3>Protocole simplifié d’extraction d’ADN avec le kit Macherey Nagel NucleoMag Tissue - Jour 1</h3>
-<p><strong>Préparation et conditionnement des échantillons</strong></p>
+<div id="protocole-simplifié-dextraction-dadn-avec-le-kit-macherey-nagel-nucleomag-tissue" class="section level3" number="1.3.1">
+<h3 number="1.3.1"><span class="header-section-number">1.3.1</span> Protocole simplifié d’extraction d’ADN avec le kit Macherey Nagel NucleoMag Tissue</h3>
+<div id="préparation-et-conditionnement-des-échantillons---jour-1" class="section level4" number="1.3.1.1">
+<h4 number="1.3.1.1"><span class="header-section-number">1.3.1.1</span> Préparation et conditionnement des échantillons - Jour 1</h4>
 <ul>
 <li><p>Tarer des tubes 1.5 ou 2mL [OPTION]</p></li>
 <li><p>Emincer les tissus avec un scalpel dans une boite de petri à usage unique [OPTION]</p></li>
@@ -331,7 +393,9 @@ Pour des tissus conservés dans de l’alcool, les rincer une fois dans une solu
 Centrifuger brièvement et enlever le maximum de liquide dans le tube 1.5 mL contenant l’échantillon par pipetage</p></li>
 <li><p>Peser les échantillons [OPTION]</p></li>
 </ul>
-<p><strong>Lyse des échantillons</strong></p>
+</div>
+<div id="lyse-des-échantillons" class="section level4" number="1.3.1.2">
+<h4 number="1.3.1.2"><span class="header-section-number">1.3.1.2</span> Lyse des échantillons</h4>
 <p>• FAIRE UN MIX TAMPON DE LYSE DANS TUBE 5 mL COMPOSE DE</p>
 <ul class="task-list">
 <li><p><input type="checkbox" disabled="" />
@@ -353,9 +417,8 @@ Broyer avec un petit pilon plastique propre les échantillons récalcitrants (ar
 Un traitement à la RNase peut être effectué en ajoutant 20 µL de RNAse A à 20 mg/mL et en incubant 15 minutes à température ambiante.</p></li>
 </ul>
 </div>
-<div id="jour-2" class="section level3">
-<h3>Jour 2</h3>
-<p><strong>Clarification des lysats</strong></p>
+<div id="clarification-des-lysats---jour-2" class="section level4" number="1.3.1.3">
+<h4 number="1.3.1.3"><span class="header-section-number">1.3.1.3</span> Clarification des lysats - Jour 2</h4>
 <ul class="task-list">
 <li><p><input type="checkbox" disabled="" />
 Centrifuger les tubes 5 min à 5600 g</p></li>
@@ -364,14 +427,18 @@ Préparer extemporanément un mélange suffisant pour distribuer 24 µL de Nucle
 <li><p><input type="checkbox" disabled="" />
 Transférer les 225 µL de lysat clarifié dans un bloc de 96 puits carrés et mélanger à la pipette.</p></li>
 </ul>
-<p><strong>Fixation de l’ADN aux NucleoMag B-Beads</strong></p>
+</div>
+<div id="fixation-de-ladn-aux-nucleomag-b-beads" class="section level4" number="1.3.1.4">
+<h4 number="1.3.1.4"><span class="header-section-number">1.3.1.4</span> Fixation de l’ADN aux NucleoMag B-Beads</h4>
 <ul class="task-list">
 <li><p><input type="checkbox" disabled="" />
 Laisser 2 min le bloc de 96 puits carrés sur le rack aimanté NucleoMag SEP</p></li>
 <li><p><input type="checkbox" disabled="" />
 Jeter le surnageant par pipetage. Attention les culots des billes sont peu visibles à cette étape.</p></li>
 </ul>
-<p><strong>Lavages</strong></p>
+</div>
+<div id="lavages" class="section level4" number="1.3.1.5">
+<h4 number="1.3.1.5"><span class="header-section-number">1.3.1.5</span> Lavages</h4>
 <ul class="task-list">
 <li><p><input type="checkbox" disabled="" />
 Enlever le bloc de 96 puits carrés du rack aimanté</p></li>
@@ -404,7 +471,9 @@ Laisser 2 min le bloc de 96 puits carrés sur le rack aimanté NucleoMag SEP</p>
 <li><p><input type="checkbox" disabled="" />
 Jeter le surnageant par pipetage</p></li>
 </ul>
-<p><strong>Elution de l’ADN</strong></p>
+</div>
+<div id="elution-de-ladn" class="section level4" number="1.3.1.6">
+<h4 number="1.3.1.6"><span class="header-section-number">1.3.1.6</span> Elution de l’ADN</h4>
 <ul class="task-list">
 <li><p><input type="checkbox" disabled="" />
 Enlever le bloc de 96 puits carrés du rack aimanté</p></li>
@@ -421,10 +490,11 @@ Transférer les éluats dans des tubes de collecte</p></li>
 </ul>
 <p>• Conserver à +4°C pour le court terme ou à -20°C pour le long terme</p>
 </div>
-<div id="protocole-simplifié-zymobiomics-dnarna-miniprep-référence-zr2002" class="section level3">
-<h3>Protocole simplifié Zymobiomics DNA/RNA miniprep (Référence ZR2002)</h3>
-<div id="préparation-des-tampons" class="section level4">
-<h4>Préparation des tampons</h4>
+</div>
+<div id="protocole-simplifié-zymobiomics-dnarna-miniprep-référence-zr2002" class="section level3" number="1.3.2">
+<h3 number="1.3.2"><span class="header-section-number">1.3.2</span> Protocole simplifié Zymobiomics DNA/RNA miniprep (Référence ZR2002)</h3>
+<div id="préparation-des-tampons" class="section level4" number="1.3.2.1">
+<h4 number="1.3.2.1"><span class="header-section-number">1.3.2.1</span> Préparation des tampons</h4>
 <ul class="task-list">
 <li><p><input type="checkbox" disabled="" />
 Ajouter 96 mL d’éthanol 100% (ou 104 mL d’éthanol 95%) aux 24 mL de DNA/RNA Wash Buffer concentré.</p></li>
@@ -432,8 +502,8 @@ Ajouter 96 mL d’éthanol 100% (ou 104 mL d’éthanol 95%) aux 24 mL de DNA/RN
 Reconstituer la DNase I lyophilisée (250 U) avec 275 µL de <strong>ZymoBIOMICS DNase/RNase-Free Water</strong>. Mélanger par retournements doux et stocker des aliquots congelés.</p></li>
 </ul>
 </div>
-<div id="préparation-des-tubes" class="section level4">
-<h4>Préparation des tubes</h4>
+<div id="préparation-des-tubes" class="section level4" number="1.3.2.2">
+<h4 number="1.3.2.2"><span class="header-section-number">1.3.2.2</span> Préparation des tubes</h4>
 <p>Pour chaque échantillon, il faut prévoir (par ordre d’apparition dans le protocole):</p>
 <ul>
 <li><p>un tube 2 mL ZR BashingBead Lysis Tube (0,1 &amp; 0,5 mm) avec tube 2 mL collecteur (fourni) [ARN] [ADN]</p></li>
@@ -449,8 +519,8 @@ Reconstituer la DNase I lyophilisée (250 U) avec 275 µL de <strong>ZymoBIOMICS
 <li><p>un tube final propre de 1,5 mL (non fourni) (tube annoté, avec bouchon et compatible avec le stockage à basse température). [ARN]</p></li>
 </ul>
 </div>
-<div id="préparation-des-échantillons" class="section level4">
-<h4>Préparation des échantillons</h4>
+<div id="préparation-des-échantillons" class="section level4" number="1.3.2.3">
+<h4 number="1.3.2.3"><span class="header-section-number">1.3.2.3</span> Préparation des échantillons</h4>
 <p>La quantité d’échantillon introduite peut être modifiée proportionnellement à la hausse ou à la baisse.</p>
 <p>Si les échantillons sont conservés dans du PBS, les centrifuger 15 minutes à 15 000 g à 4°C. Puis retirer délicatement le surnageant.</p>
 <p>-1 Ajouter 750 µL de DNA/RNA Shield à l’échantillon (quantités recommandées indiquées ci-dessous), mélanger à la pipette, puis transférer le tout dans un ZR BashingBead Lysis Tube (billes de 0,1 &amp; 0,5 mm) et fermer le bouchon fermement. Mettre les tubes dans de la glace pour les refroidir.</p>
@@ -468,8 +538,8 @@ Centrifuger 1 minute à 13 000 g et transférer jusqu’à 400 µL de surnageant
 <p>Conserver le tube ZR BashingBead Lysis Tube à -20°C jusqu’à la fin des expériences, il est possible de réaliser de nouvelles extractions sur l’échantillon en cas de problème.</p>
 <p>Procéder ensuite à la purification de l’ADN et de l’ARN.</p>
 </div>
-<div id="purification-dadn-et-darn-dans-deux-fractions-séparées" class="section level4">
-<h4>Purification d’ADN et d’ARN dans deux fractions séparées</h4>
+<div id="purification-dadn-et-darn-dans-deux-fractions-séparées" class="section level4" number="1.3.2.4">
+<h4 number="1.3.2.4"><span class="header-section-number">1.3.2.4</span> Purification d’ADN et d’ARN dans deux fractions séparées</h4>
 <ol style="list-style-type: decimal">
 <li>Transférer 800 µL d’échantillon (mélange surnageant de broyage + DNA/RNA Lysis Buffer) sur un Spin-Away Filter (jaune) installé sur un tube collecteur et centrifuger 30 secondes à 13 000 g. TRANSFERER et GARDER le filtrat dans un tube 5 mL nuclease-free non fourni. Transférer les 400 µL restant d’échantillon sur le Spin-Away Filter (jaune) installé sur le tube collecteur et centrifuger 30 secondes à 13 000 g. TRANSFERER le filtrat dans le tube 5 mL utilisé précédemment.</li>
 </ol>
@@ -494,8 +564,8 @@ Centrifuger 1 minute à 13 000 g et transférer jusqu’à 400 µL de surnageant
 <p>Mesurer les concentrations au Qubit (Qubit™ dsDNA HS Assay Kit et Qubit™ RNA BR Assay Kit).</p>
 <p>Pour vérifier la qualité, déposer ~100 ng d’ADN (max 5µL) sur un gel d’agarose 0,8% et 1,5µL d’ARN sur une puce Agilent RNA 6000 Nano.</p>
 </div>
-<div id="annexes" class="section level4">
-<h4>Annexes</h4>
+<div id="annexes" class="section level4" number="1.3.2.5">
+<h4 number="1.3.2.5"><span class="header-section-number">1.3.2.5</span> Annexes</h4>
 <p><strong>Traitement DNase I sur colonne</strong></p>
 <ol style="list-style-type: decimal">
 <li><p>Apres l’étape de fixation de l’ARN (étape numéro 2 “Purification de l’ARN”), ajouter 400 µL de DNA/RNA Wash Buffer à la colonne et centrifuger 30 secondes à 13 000 g. Jeter le filtrat.</p></li>
@@ -511,29 +581,29 @@ Centrifuger 1 minute à 13 000 g et transférer jusqu’à 400 µL de surnageant
 </div>
 </div>
 </div>
-<div id="contrôle-qualité-de-ladn" class="section level1">
-<h1>Contrôle qualité de l’ADN</h1>
+<div id="contrôle-qualité-de-ladn" class="section level1" number="2">
+<h1 number="2"><span class="header-section-number">2</span> Contrôle qualité de l’ADN</h1>
 <p>• Contrôle qualité quantitatif : évaluation de la concentration par Qubit DNA BR ou HS (cf Protocole de dosage de l’ADN avec le fluorimètre Qubit ci-après)</p>
 <p>• Noter les concentrations dans la fiche d’extraction</p>
 <p>• Contrôle qualité qualitatif : Evaluer par électrophorèse sur gel d’agarose à partir de 100 ng d’ADN ou de 1 µL de prise d’essai (cf protocole électrophorèse ci-après)</p>
 <p>• Prendre une photo du gel, légender et interpréter sur la fiche d’extraction</p>
 <p>• Pour les PCR, préparer 100 à 200 µL de dilutions à 2 ou 5 ng/µL (en fonction des projets) en tubes (0.5 mL ou 1.5 mL) : créer une fiche de calcul de dilution avec volume constant d’ADN et volume variable d’eau NFW (Nuclease Free Water).</p>
-<div id="protocole-de-dosage-de-ladn-avec-le-fluorimètre-qubit" class="section level2">
-<h2>Protocole de dosage de l’ADN avec le fluorimètre Qubit</h2>
-<div id="recommandations-1" class="section level3">
-<h3>Recommandations</h3>
+<div id="protocole-de-dosage-de-ladn-avec-le-fluorimètre-qubit" class="section level2" number="2.1">
+<h2 number="2.1"><span class="header-section-number">2.1</span> Protocole de dosage de l’ADN avec le fluorimètre Qubit</h2>
+<div id="recommandations-1" class="section level3" number="2.1.1">
+<h3 number="2.1.1"><span class="header-section-number">2.1.1</span> Recommandations</h3>
 <p>• Porter des gants et une blouse</p>
 <p>• Jeter les cônes dans un récipient clairement étiqueté “Poubelle cônes”</p>
 <p>• Reporter les résultats dans la fiche adéquate (extraction d’ADN, ou préparation de banque pour séquençage)</p>
 </div>
-<div id="matériels-1" class="section level3">
-<h3>Matériels</h3>
+<div id="matériels-1" class="section level3" number="2.1.2">
+<h3 number="2.1.2"><span class="header-section-number">2.1.2</span> Matériels</h3>
 <p>• Tubes 0,5 mL translucide (QUBIT assay tubes)</p>
 <p>• Appareil de mesure QuBIT</p>
 <p>• Kit de mesure Qubit dsDNA 1XHS (haute sensibilité) de ThermoFisher Scientific.</p>
 </div>
-<div id="procédures-1" class="section level3">
-<h3>Procédures</h3>
+<div id="procédures-1" class="section level3" number="2.1.3">
+<h3 number="2.1.3"><span class="header-section-number">2.1.3</span> Procédures</h3>
 <p>Réaliser une calibration de l’appareil avant chaque dosage (chaque jour) en préparant un tube avec le standard #1 à 0 ng/µL et un tube avec le standard #2 à 10 ng/µL.</p>
 <p>Pour les standards, mettre dans un tube 0,5 mL translucide (QUBIT assay tubes) :</p>
 <pre><code>- 10 µL de standard (stocké à 4°C)
@@ -547,23 +617,23 @@ Centrifuger 1 minute à 13 000 g et transférer jusqu’à 400 µL de surnageant
 <p>Puis effectuer la mesure de concentration sur l’appareil Qubit.</p>
 </div>
 </div>
-<div id="electrophorèse" class="section level2">
-<h2>Electrophorèse</h2>
-<div id="recommandations-2" class="section level3">
-<h3>Recommandations</h3>
+<div id="electrophorèse" class="section level2" number="2.2">
+<h2 number="2.2"><span class="header-section-number">2.2</span> Electrophorèse</h2>
+<div id="recommandations-2" class="section level3" number="2.2.1">
+<h3 number="2.2.1"><span class="header-section-number">2.2.1</span> Recommandations</h3>
 <p>• Porter des gants et une blouse</p>
 <p>• Jeter les cônes dans un récipient clairement étiqueté “Poubelle cônes”</p>
 <p>• Rédiger une fiche d’électrophorèse avec l’ordre des dépôts sur le gel.</p>
 <p>• Utiliser des maniques pour se protéger de la chaleur lors de la fonte de l’agarose</p>
 </div>
-<div id="matériels-2" class="section level3">
-<h3>Matériels</h3>
+<div id="matériels-2" class="section level3" number="2.2.2">
+<h3 number="2.2.2"><span class="header-section-number">2.2.2</span> Matériels</h3>
 <p>Plaque 96 puits, centrifugeuse, portoirs, colorant de l’ADN (type SYBR stain: Gel green 10000X ou SafeView)</p>
 <p>Agarose, tampon d’électrophorèse TBE 0.5X, cuve d’électrophorèse, portoir de gel, peigne, tampon de charge, marqueur de masse moléculaire smartladder, balance, éprouvette graduée ou récipient, bain-marie ou micro-onde.</p>
 <p>Rappel pour calcul des dilutions : C1V1=C2V2 et donc V2=(C1V1)/C2</p>
 </div>
-<div id="procédures-2" class="section level3">
-<h3>Procédures</h3>
+<div id="procédures-2" class="section level3" number="2.2.3">
+<h3 number="2.2.3"><span class="header-section-number">2.2.3</span> Procédures</h3>
 <p>• Evaluer par électrophorèse sur gel d’agarose à partir de 100 ng d’ADN ou 5 µL de produit de PCR</p>
 <p>• Préparer un gel d’agarose 0.75 % (poids / volume) pour l’ADNg ou 1% pour les produits de PCR en 0.5X TBE</p>
 <p>• Préparer le tampon de charge avec colorant de l’ADN : 1 µL de colorant pour 500 µL de tampon de charge</p>
@@ -619,22 +689,22 @@ Centrifuger 1 minute à 13 000 g et transférer jusqu’à 400 µL de surnageant
 </div>
 </div>
 </div>
-<div id="atelier-pcr---cdna" class="section level1">
-<h1>Atelier PCR - cDNA</h1>
-<div id="recommandations-3" class="section level2">
-<h2>Recommandations</h2>
+<div id="atelier-pcr---cdna" class="section level1" number="3">
+<h1 number="3"><span class="header-section-number">3</span> Atelier PCR - cDNA</h1>
+<div id="recommandations-3" class="section level2" number="3.1">
+<h2 number="3.1"><span class="header-section-number">3.1</span> Recommandations</h2>
 <p>• Porter des gants et une blouse</p>
 <p>• Jeter les cônes dans un récipient clairement étiqueté</p>
 <p>• Prélever une quantité des différentes tampons nécessaires qui soit compatible avec le nombre d’échantillons à traiter</p>
 <p>• Rédiger une fiche PCR</p>
 </div>
-<div id="matériels-3" class="section level2">
-<h2>Matériels</h2>
+<div id="matériels-3" class="section level2" number="3.2">
+<h2 number="3.2"><span class="header-section-number">3.2</span> Matériels</h2>
 <p>Thermocycleur, centrifugeuse, portoirs, Glace, amorces, mix PCR, ADN, barrettes PCR</p>
 <p>Rappel pour calcul des dilutions : C1V1=C2V2 et donc V2=(C1V1)/C2</p>
 </div>
-<div id="procédures-pcr" class="section level2">
-<h2>Procédures PCR</h2>
+<div id="procédures-pcr" class="section level2" number="3.3">
+<h2 number="3.3"><span class="header-section-number">3.3</span> Procédures PCR</h2>
 <p>• Utiliser 50 ng d’ADN à 10 ng/µL</p>
 <p>• Identifier les amorces de PCR à utiliser</p>
 <p>• Identifier les conditions de PCR à utiliser</p>
@@ -735,8 +805,8 @@ Centrifuger 1 minute à 13 000 g et transférer jusqu’à 400 µL de surnageant
 <p>68°C 7min</p>
 <p>10°C forever</p>
 </div>
-<div id="procédures-cdna" class="section level2">
-<h2>Procédures cDNA</h2>
+<div id="procédures-cdna" class="section level2" number="3.4">
+<h2 number="3.4"><span class="header-section-number">3.4</span> Procédures cDNA</h2>
 <p>• <strong>Synthèse d’ADNc d’après Claro et al., 2021. <a href="https://doi.org/10.12688/wellcomeopenres.17170.2" class="uri">https://doi.org/10.12688/wellcomeopenres.17170.2</a></strong></p>
 <p>SMART cDNA synthesis and PCR</p>
 <p>NEB_bRT_9N DNA 40 nmol purifié HPLC RP TE 100 µM AAGCAGTGGTATCAACGCAGAGTACNNNNNNNNN</p>
@@ -856,9 +926,14 @@ Centrifuger 1 minute à 13 000 g et transférer jusqu’à 400 µL de surnageant
 <p>Alternative: |PCR || |-|-| |LongAmp Taq 2X master mix|25µL| |NEB_PCR oligo 20 µM| 0.5µL| |NFW| 19.5 µL| |cDNA| 5 µL| Conditions PCR pour amorces RLB1-12 du kit ONT RPB004 : 95°C for 45 sec, followed by 30 cycles of 95°C for 15 sec, 56°C for 15 sec, and 65°C for 5 min and a final step of 65°C for 10 min.</p>
 </div>
 </div>
-<div id="atelier-séquençage" class="section level1">
-<h1>Atelier Séquençage</h1>
-<p><img src="images/GenbarqueG2_minion.png" alt="Genbarque_minion" /> ## Recommandations</p>
+<div id="atelier-séquençage" class="section level1" number="4">
+<h1 number="4"><span class="header-section-number">4</span> Atelier Séquençage</h1>
+<div class="figure">
+<img src="images/GenbarqueG2_minion.png" alt="" />
+<p class="caption">Genbarque_minion</p>
+</div>
+<div id="recommandations-4" class="section level2" number="4.1">
+<h2 number="4.1"><span class="header-section-number">4.1</span> Recommandations</h2>
 <p>• Porter des gants et une blouse</p>
 <p>• Jeter les cônes dans un récipient clairement étiqueté</p>
 <p>• Prélever une quantité des différentes tampons nécessaires qui soit compatible avec le nombre d’échantillons à traiter</p>
@@ -866,33 +941,34 @@ Centrifuger 1 minute à 13 000 g et transférer jusqu’à 400 µL de surnageant
 <p>• Vérifier le nombre de pores sur la flowcell <strong>AVANT la construction de la banque</strong></p>
 <p>• Vérifier l’espace disque disponible sur le Mk1C ou l’ordinateur <strong>AVANT la construction de la banque</strong></p>
 <p>• <strong>Toujours</strong> préparer l’éthanol 80% ex-temporanément et sortir les billes magnétiques du réfrigérateur 15 min avant emploi.</p>
-<div id="matériels-4" class="section level2">
-<h2>Matériels</h2>
+</div>
+<div id="matériels-4" class="section level2" number="4.2">
+<h2 number="4.2"><span class="header-section-number">4.2</span> Matériels</h2>
 <p>Thermocycleur, centrifugeuse, portoirs, Glace, kit ONT, rack magnétique, billes magnétiques, barrettes PCR, tubes DNA LoBind, éthanol, minion Mk1C</p>
 <p>Rappel pour calcul des dilutions : C1V1=C2V2 et donc V2=(C1V1)/C2</p>
 </div>
-<div id="procédures-3" class="section level2">
-<h2>Procédures</h2>
-<div id="préparation-de-pool-de-produits-de-pcr" class="section level3">
-<h3>Préparation de pool de produits de PCR</h3>
+<div id="procédures-3" class="section level2" number="4.3">
+<h2 number="4.3"><span class="header-section-number">4.3</span> Procédures</h2>
+<div id="préparation-de-pool-de-produits-de-pcr" class="section level3" number="4.3.1">
+<h3 number="4.3.1"><span class="header-section-number">4.3.1</span> Préparation de pool de produits de PCR</h3>
 <p>Deux façons de faire :</p>
-<div id="pool-équimolaire" class="section level4">
-<h4>Pool équimolaire</h4>
+<div id="pool-équimolaire" class="section level4" number="4.3.1.1">
+<h4 number="4.3.1.1"><span class="header-section-number">4.3.1.1</span> Pool équimolaire</h4>
 <p>Purifier 20 µL de chaque produit de PCR (amplicon) avec le protocole Nucleomag NGS clean-up and size select (cf protocole ci-après).</p>
 <p>Quantifier chaque produit de PCR purifié avec le protocole Qubit à l’aide du kit dsDNA HS.</p>
 <p>Réaliser un pool équimolaire en mélangeant 100 à 400 ng de chaque produit de PCR purifié dans un tube DNA LoBind 1,5 ml PCR clean.</p>
 <p>Quantifier avec le protocole Qubit à l’aide du kit dsDNA HS.</p>
 </div>
-<div id="pool-simplifié" class="section level4">
-<h4>Pool simplifié</h4>
+<div id="pool-simplifié" class="section level4" number="4.3.1.2">
+<h4 number="4.3.1.2"><span class="header-section-number">4.3.1.2</span> Pool simplifié</h4>
 <p>Réaliser un pool en mélangeant de 2 à 10 µL de chaque produit de PCR dans un tube DNA LoBind 1,5 ml PCR clean. Le volume de chaque produit de PCR peut-être adapté en fonction de l’évaluation de sa quantité par électrophorèse gel d’agarose.</p>
 <p>Prélever 100 µL de ce pool et le purifier dans un tube 1.5 mL avec le protocole Nucleomag NGS clean-up and size select (cf protocole ci-après) et effectuer l’élution dans un volume de 50 à 100 µL.</p>
 <p>Quantifier avec le protocole Qubit à l’aide du kit dsDNA HS.</p>
 <p>La quantité recommandée de banque à séquencer sur une flowcell de type flongle FLO-FLG114 est de 5 à 10 fmol (cf Protocole SQK-LSK114 pour flongle), et il est fortement déconseillé d’utiliser plus que 50 fmol. On peut <a href="http://nebiocalculator.neb.com/#!/dsdnaamt">calculer</a> que 10 fmol d’un ADN de 1000 bp correspondent à 6.2 ng. Pour nos applications, il faut donc se situer entre 5 et 15 ng d’ADN de banque en fonction de la taille des amplicons à séquencer. Pour les ADNc on peut faire comme approximation de taille moyennet</p>
 </div>
 </div>
-<div id="purification-de-produits-de-pcr-ou-dadnc-avec-des-billes-magnétiques-en-barrettes-pcr-huit-puits-de-0.2-mlmn-nucleomag-ngs-clean-up-and-size-select-ou-équivalent" class="section level3">
-<h3>Purification de produits de PCR ou d’ADNc avec des billes magnétiques en barrettes PCR huit puits de 0.2 mL(MN NucleoMag NGS clean-up and size select ou équivalent)</h3>
+<div id="purification-de-produits-de-pcr-ou-dadnc-avec-des-billes-magnétiques-en-barrettes-pcr-huit-puits-de-0.2-mlmn-nucleomag-ngs-clean-up-and-size-select-ou-équivalent" class="section level3" number="4.3.2">
+<h3 number="4.3.2"><span class="header-section-number">4.3.2</span> Purification de produits de PCR ou d’ADNc avec des billes magnétiques en barrettes PCR huit puits de 0.2 mL(MN NucleoMag NGS clean-up and size select ou équivalent)</h3>
 <ul>
 <li><p>Laisser les billes magnétiques à RT (environ 20°C) au moins 15 min.</p></li>
 <li><p>Extemporanément préparer suffisamment d’une solution d’ethanol 80% pour avoir 500 µL par échantillon.</p></li>
@@ -918,8 +994,8 @@ Centrifuger 1 minute à 13 000 g et transférer jusqu’à 400 µL de surnageant
 </ul>
 <p>Pour les purifications en tubes 1.5 mL DNA LoBind, ne réaliser que deux lavages avec 200 µL d’éthanol 80%.</p>
 </div>
-<div id="construction-de-la-banque" class="section level3">
-<h3>Construction de la banque</h3>
+<div id="construction-de-la-banque" class="section level3" number="4.3.3">
+<h3 number="4.3.3"><span class="header-section-number">4.3.3</span> Construction de la banque</h3>
 <p>Le manuel d’utilisation du <a href="images/Protocoles_ONT_G2/minion-mk1c-user-manual-MKC_2005_v1_revAE_27Nov2019-any.pdf">Mk1C</a></p>
 <p>Le manuel de référence de la <a href="images/Protocoles_ONT_G2/Chemistry_Community-Technical_document.pdf">chimie ONT</a></p>
 <p>Utiliser le protocole de séquençage direct d’amplicons pour flongle <a href="images/Protocoles_ONT_G2/Ligation_sequencing_amplicons_V14_SQK-LSK114-flongle-checklist.pdf">Ligation sequencing amplicons V14 (SQK-LSK114) pour FLO-FLG114</a></p>
@@ -928,11 +1004,17 @@ Centrifuger 1 minute à 13 000 g et transférer jusqu’à 400 µL de surnageant
 <p>Utiliser le protocole de séquençage direct d’ADNc pour flowcell (non-utilisé) <a href="images/Protocoles_ONT_G2/Ligation_sequencing_V14-DirectcDNA%20sequencing_SQK-LSK114-minion-checklist.pdf">Ligation sequencing V14 Direct cDNA sequencing</a></p>
 <p>Utiliser le protocole de séquençage et de barcoding d’amplicons par PCR pour flowcell (utilisation de la partie barcoding PCR) <a href="images/Protocoles_ONT_G2/Ligation_sequencing_V14-PCR%20barcoding_SQK-LSK114_EXP-PBC001_EXP-PBC096-minion-Checklist.pdf">Ligation sequencing amplicons V14 (SQK-LSK114) avec EXP-PBC001_EXP-PBC096</a></p>
 </div>
+<div id="chargement-de-la-flowcell-et-séquençage-avec-minknow" class="section level3" number="4.3.4">
+<h3 number="4.3.4"><span class="header-section-number">4.3.4</span> Chargement de la flowcell et séquençage avec Minknow</h3>
+<p>détailler les procédures ici</p>
 </div>
 </div>
+</div>
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -965,6 +1047,35 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
