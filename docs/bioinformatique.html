@@ -348,10 +348,8 @@ $(document).ready(function () {
 <p>Le logiciel de basecalling Dorado prend avantage de calculs réalisés sur carte graphique (GPU), il est incorporé au logiciel MinKNOW mais peut être installé séparément sur un calculateur dédié. On veillera à sauvegarder les données brutes (raw data) sous forme d’une archive compressée pour faciliter l’archivage et la copie.</p>
 <pre><code>tar -zcvf xp_sequencage_XYZ.tar.gz dossier_experience</code></pre>
 <p>Le logiciel de basecalling accepte de nombreux arguments, certains obligatoires et d’autres optionnels. Parmi les arguments obligatoires figurent <strong>le type de flowcell</strong> (FLO-MIN114 …), <strong>le kit</strong> (SQK-LSK114) et <strong>la configuration du modèle pour le basecalling</strong> (dna_r10_450bps_hac). Cette dernière information est importante à noter car elle peut être utile pour l’analyse des données par la suite.</p>
+<p>On pourrait comparer une série de lectures avec différents modes de basecalling</p>
 </div>
-</div>
-<div id="on-pourrait-comparer-une-série-de-lectures-avec-différents-modes-de-basecalling" class="section level1">
-<h1>On pourrait comparer une série de lectures avec différents modes de basecalling</h1>
 <div id="le-processus-de-démultiplexage" class="section level3">
 <h3>Le processus de démultiplexage</h3>
 <p>####Génération des index pour le multiplexage Utilisation de <a href="https://github.com/audy/barcode-generator" class="uri">https://github.com/audy/barcode-generator</a></p>
@@ -457,15 +455,25 @@ Démultiplexage maison
   Combien de lectures sont assignées à un index qui n&#39;a pas été utilisé ?
   Quelle est la distribution de la taille des lectures démultiplexées ?</code></pre>
 </div>
+</div>
 <div id="assemblage-de-séquences-damplicons" class="section level2">
 <h2>Assemblage de séquences d’amplicons</h2>
-<p>#Guppyplex et NGSpeciesID</p>
-<p>#medaka smolecule 1-convertir les fastq en fasta avec l’information de regroupement bioawk -c fastx ‘{print “&gt;COI_F1R1” $name;print $seq}’ COI_3_pass_FILT_CO1_DROS_F1CO1_DROS_R1_SP.fastq &gt; COI_F1R1.fasta</p>
-<p>##(genbark0) <a href="mailto:cnrs@cnrs-PowerEdge-R840" class="email">cnrs@cnrs-PowerEdge-R840</a>:~/Documents/NicolasData/bacasable/test_consensus_amplicon$ sed -e ‘s/^&gt;/&gt;CO1F8R9 /’ COI_F8R9.fasta &gt; COI_F8R9_smolec.fasta</p>
-<p>2-Lancer la commande medaka smolec medaka smolecule –debug –model r1041_e82_400bps_hac_v4.3.0 –method spoa consensusF1R1_dir COI_F1R1.fasta</p>
-<p>3-Renommer le fichier consensus.fasta et editer le nom de la sequence bioawk -c fastx ‘{print “&gt;COI_F1R1”;print $seq}’ consensusF1R1_dir/consensus.fasta &gt; consensus_F1R1.fasta</p>
-<p>4-Ecrire un script bash pour automatiser les étapes 1 à 3</p>
-<p>#medaka smolecule –debug –model r941_min_high_g303 –method spoa output_dir/ input250.fasta</p>
+<div id="guppyplex-et-ngspeciesid" class="section level3">
+<h3>Guppyplex et NGSpeciesID</h3>
+<div id="medaka-smolecule" class="section level4">
+<h4>medaka smolecule</h4>
+<p>1-convertir les fastq en fasta avec l’information de regroupement</p>
+<pre><code>bioawk -c fastx &#39;{print &quot;&gt;COI_F1R1 &quot; $name;print $seq}&#39; COI_3_pass_FILT_CO1_DROS_F1CO1_DROS_R1_SP.fastq &gt; COI_F1R1.fasta</code></pre>
+<pre><code>cnrs@cnrs-PowerEdge-R840:~/Documents/NicolasData/bacasable/test_consensus_amplicon$ sed -e &#39;s/^&gt;/&gt;CO1F8R9 /&#39; COI_F8R9.fasta &gt; COI_F8R9_smolec.fasta </code></pre>
+<p>2-Lancer la commande medaka smolec</p>
+<pre><code>medaka smolecule --debug --model r1041_e82_400bps_hac_v4.3.0 --method spoa consensusF1R1_dir COI_F1R1.fasta</code></pre>
+<p>ATTENTION : la méthode spoa consiste à réaliser un alignement multiple des lectures et par conséquent il faut éviter de le lancer sur des milliers de lectures, sinon le temps de calcul sera trèèèèès loooooonnng.</p>
+<p>3-Renommer le fichier consensus.fasta et editer le nom de la sequence ```bioawk -c fastx ‘{print “&gt;COI_F1R1”;print $seq}’ consensusF1R1_dir/consensus.fasta &gt; consensus_F1R1.fasta</p>
+<pre><code>4-Ecrire un script bash pour automatiser les étapes 1 à 3 
+</code></pre>
+<p>medaka smolecule –debug –model r941_min_high_g303 –method spoa output_dir/ input250.fasta ```</p>
+</div>
+</div>
 </div>
 <div id="bacterial-genome-assembly" class="section level2">
 <h2>Bacterial genome assembly</h2>
@@ -480,7 +488,6 @@ Démultiplexage maison
 </div>
 <div id="méthodes-de-soumission-des-données-de-séquençage-ont" class="section level2">
 <h2>Méthodes de soumission des données de séquençage ONT</h2>
-</div>
 </div>
 
 
